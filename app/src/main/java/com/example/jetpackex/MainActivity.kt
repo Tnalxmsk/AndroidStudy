@@ -2,6 +2,7 @@ package com.example.jetpackex
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.jetpackex.databinding.ActivityMainBinding
 
@@ -10,9 +11,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        setContentView(binding.root)
 
         with(binding) {
             mainCountTv.text = viewModel.countValue.toString()
@@ -23,6 +23,14 @@ class MainActivity : AppCompatActivity() {
             minusBt.setOnClickListener {
                 viewModel.minus()
                 mainCountTv.text = viewModel.countValue.toString()
+            }
+            val manager = supportFragmentManager
+            showFragmentBt.setOnClickListener {
+                val transaction = manager.beginTransaction()
+                val fragment = TestFragment()
+                transaction.replace(R.id.frameArea, fragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
             }
         }
     }
