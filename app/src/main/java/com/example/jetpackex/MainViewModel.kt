@@ -1,10 +1,14 @@
 package com.example.jetpackex
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
+class MainViewModel(num : Int) : ViewModel() {
     var countValue = 0
 
+    init {
+        Log.d("MainViewModel", num.toString())
+    }
     fun plus() {
         countValue++
     }

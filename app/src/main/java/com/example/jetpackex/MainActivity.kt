@@ -9,10 +9,13 @@ import com.example.jetpackex.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+    private lateinit var viewModelFactory: MainViewModelFactory
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModelFactory = MainViewModelFactory(5000)
+
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
 
         with(binding) {
             mainCountTv.text = viewModel.countValue.toString()
