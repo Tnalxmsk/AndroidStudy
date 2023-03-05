@@ -22,9 +22,12 @@ class TestFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false)
+        /*
         with(binding) {
             fragmentTestTv.text = viewModel.getCount().toString()
         }
+
+         */
         return binding.root
     }
 

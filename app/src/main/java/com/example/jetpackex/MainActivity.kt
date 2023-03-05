@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        /*
         viewModelFactory = MainViewModelFactory(5000)
 
         viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
                 transaction.commit()
             }
         }
+
+         */
     }
 
     override fun onStart() {
