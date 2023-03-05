@@ -20,8 +20,10 @@ class MutalbleLiveDataActivity : AppCompatActivity() {
             liveNumUpBt.setOnClickListener {
                 viewModel.plusLiveDataValue()
             }
-            viewModel.testMutableLiveData.observe(this@MutalbleLiveDataActivity) {
+            viewModel.testLiveData.observe(this@MutalbleLiveDataActivity) {
                 liveNumTv.text = it.toString()
+            //viewModel.testMutableLiveData.observe(this@MutalbleLiveDataActivity) {
+            //    liveNumTv.text = it.toString()
             }
         }
     }
