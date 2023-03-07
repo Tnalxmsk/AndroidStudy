@@ -4,30 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MutalbleLiveDataActivity">
 
+    <data>
+        <variable
+            name="vm"
+            type="com.example.jetpackex.MainViewModel" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/live_num_tv"
+            android:id="@+id/live_num_tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="112dp"
-            android:text="0"
+            android:text="@{vm.liveWord}"
             android:textSize="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/live_num_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:text="@{vm.randomLiveWord}"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/live_num_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="284dp"
+            android:text="@{vm.newData}"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/live_num_up_bt"
+            android:id="@+id/live_bt"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:text="up"
+            android:layout_marginTop="32dp"
+            android:text="click"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/live_num_tv" />
-
+            app:layout_constraintTop_toBottomOf="@+id/live_num_tv3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
