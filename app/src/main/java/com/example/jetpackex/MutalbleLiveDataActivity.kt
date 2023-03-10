@@ -21,7 +21,7 @@ class MutalbleLiveDataActivity : AppCompatActivity() {
         val api = RetrofitInstance.getInstance().create(MyApi::class.java)
         api.getPost1().enqueue(object : Callback<Post> {
             override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                Log.d("API1", response.toString())
+                Log.d("API1", response.body().toString())
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
@@ -29,6 +29,18 @@ class MutalbleLiveDataActivity : AppCompatActivity() {
             }
 
         })
+
+        api.getPostNumber(2).enqueue(object : Callback<Post> {
+            override fun onResponse(call: Call<Post>, response: Response<Post>) {
+                Log.d("API2", response.body().toString())
+            }
+
+            override fun onFailure(call: Call<Post>, t: Throwable) {
+                Log.d("API2", "fail")
+            }
+
+        })
+
         with(binding) {
 
 
