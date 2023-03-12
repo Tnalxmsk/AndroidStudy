@@ -66,13 +66,13 @@ class MutalbleLiveDataActivity : AppCompatActivity() {
         })
 
         with(binding) {
-
-
             vm = viewModel
             lifecycleOwner = this@MutalbleLiveDataActivity
             liveBt.setOnClickListener {
                 viewModel.getNextData()
             }
+            // ViewModelScope 사용
+            viewModel.b()
 
 
         //liveNumUpBt.setOnClickListener {

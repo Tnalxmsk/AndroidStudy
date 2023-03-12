@@ -1,8 +1,8 @@
 package com.example.jetpackex
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import android.util.Log
+import androidx.lifecycle.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainViewModel() : ViewModel() {
 
@@ -39,6 +39,14 @@ class MainViewModel() : ViewModel() {
         return liveData
     }
 
+    fun b() {
+        viewModelScope.launch {
+            for (i in 0..10) {
+                delay(1000)
+                Log.d("ViewModel", i.toString())
+            }
+        }
+    }
 
 
     /*
