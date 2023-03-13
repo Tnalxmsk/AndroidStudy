@@ -3,6 +3,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.jetpackex.api.MyApi
 import com.example.jetpackex.api.RetrofitInstance
+import com.example.jetpackex.model.Post
 import com.example.jetpackex.testDataList
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -19,6 +20,10 @@ class MainViewModel() : ViewModel() {
     val liveWord2 : LiveData<String>
         get() = _mutableWord2
 
+    private var _mutableWordList = MutableLiveData<List<Post>>()
+    val liveWordList : LiveData<List<Post>>
+        get() = _mutableWordList
+
     fun getPost1() = viewModelScope.launch {
         val post = retrofitInstance.getPost1()
         Log.d("MainViewModel", post.toString())
@@ -30,6 +35,13 @@ class MainViewModel() : ViewModel() {
         Log.d("MainViewModel", post.toString())
         _mutableWord2.value = post.title
     }
+
+    fun getPostAll() = viewModelScope.launch {
+        val postAll = retrofitInstance.getPostAll()
+        Log.d("MainViewModel", postAll.toString())
+        _mutableWordList.value = postAll
+    }
+
     /*
     private var _mutableWord = MutableLiveData("")
     val liveWord : LiveData<String>

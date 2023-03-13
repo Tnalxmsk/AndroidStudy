@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.jetpackex.R
+import com.example.jetpackex.adapter.CustomAdapter
 import com.example.jetpackex.api.MyApi
 import com.example.jetpackex.api.RetrofitInstance
 import com.example.jetpackex.databinding.ActivityMutalbleLiveDataBinding
@@ -26,11 +28,18 @@ class MutalbleLiveDataActivity : AppCompatActivity() {
             getPost1()
             getPostNumber(3)
             getPostNumber(5)
+            getPostAll()
             liveWord1.observe(this@MutalbleLiveDataActivity) {
                 binding.liveNumTv1.text = it.toString()
             }
             liveWord2.observe(this@MutalbleLiveDataActivity) {
                 binding.liveNumTv2.text = it.toString()
+            }
+
+            liveWordList.observe(this@MutalbleLiveDataActivity) {
+                val customAdapter = CustomAdapter(it as ArrayList<Post>)
+                binding.mainRv.adapter = customAdapter
+                binding.mainRv.layoutManager = LinearLayoutManager(this@MutalbleLiveDataActivity)
             }
         }
 
