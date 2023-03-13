@@ -1,10 +1,12 @@
-package com.example.jetpackex
+package com.example.jetpackex.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
+import com.example.jetpackex.R
 import com.example.jetpackex.databinding.ActivityMainBinding
+import com.example.jetpackex.viewModel.MainViewModel
+import com.example.jetpackex.viewModel.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -13,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        /*
+    /*
         viewModelFactory = MainViewModelFactory(5000)
 
         viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]

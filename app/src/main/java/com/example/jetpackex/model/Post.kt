@@ -1,4 +1,4 @@
-package com.example.jetpackex
+package com.example.jetpackex.model
 
 data class Post(
     val userId : Int,

@@ -7,7 +7,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestFragment">
+    tools:context=".view.TestFragment">
 
         <TextView
             android:id="@+id/fragment_test_tv"

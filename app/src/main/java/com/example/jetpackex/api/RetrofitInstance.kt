@@ -1,4 +1,4 @@
-package com.example.jetpackex
+package com.example.jetpackex.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

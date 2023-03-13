@@ -1,11 +1,16 @@
-package com.example.jetpackex
+package com.example.jetpackex.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.jetpackex.R
+import com.example.jetpackex.api.MyApi
+import com.example.jetpackex.api.RetrofitInstance
 import com.example.jetpackex.databinding.ActivityMutalbleLiveDataBinding
+import com.example.jetpackex.model.Post
+import com.example.jetpackex.viewModel.MainViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,7 +22,19 @@ class MutalbleLiveDataActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_mutalble_live_data)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        with(viewModel) {
+            getPost1()
+            getPostNumber(3)
+            getPostNumber(5)
+            liveWord1.observe(this@MutalbleLiveDataActivity) {
+                binding.liveNumTv1.text = it.toString()
+            }
+            liveWord2.observe(this@MutalbleLiveDataActivity) {
+                binding.liveNumTv2.text = it.toString()
+            }
+        }
 
+    /*
         val api = RetrofitInstance.getInstance().create(MyApi::class.java)
 
         // 1. 유저 정보를 가져와서 (userId)
@@ -74,10 +91,9 @@ class MutalbleLiveDataActivity : AppCompatActivity() {
             // ViewModelScope 사용
             viewModel.b()
 
-
+         */
         //liveNumUpBt.setOnClickListener {
             //    viewModel.plusLiveDataValue()
-        }
            // viewModel.testLiveData.observe(this@MutalbleLiveDataActivity) {
             //    liveNumTv.text = it.toString()
             //viewModel.testMutableLiveData.observe(this@MutalbleLiveDataActivity) {
